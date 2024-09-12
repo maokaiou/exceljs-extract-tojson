@@ -40,7 +40,28 @@ function extractDataFromRow(worksheet){
   return result
 }
 
+// 抽离tag
+function extractTagFromRow(workSheet){
+  const result = []
+  workSheet.eachRow((row, rowNumber)=>{
+    if (rowNumber > 1) { // 跳过标题行
+      const page = row.getCell(1).value;
+      const h2Tag = row.getCell(5).value;
+      let h3Tag = row.getCell(6).value.split('\n');
+      h3Tag=cleanAltValues(h3Tag) || []
+      const data = {
+        "型号": page,
+        "h2": h2Tag,
+        "h3": h3Tag
+      }
+      result.push(data)
+    }
+  })
+  return result
+}
+
 module.exports = {
   readExcel,
-  extractDataFromRow
+  extractDataFromRow,
+  extractTagFromRow
 };

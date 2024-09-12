@@ -6,6 +6,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "node ./src/dev.js",
     "merge": "node ./src/mergeJson.js",
+    "add-tag": "node ./src/tag.js",
     "build": "npm run dev && npm run merge"
   },
   "keywords": [],
@@ -13,6 +14,7 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
-    "exceljs": "^4.4.0"
+    "exceljs": "^4.4.0",
+    "fast-levenshtein": "^3.0.0"
   }
 }

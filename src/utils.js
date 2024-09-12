@@ -17,6 +17,11 @@ function extractTDK(tdk) {
     return ele.split('：').slice(1)[0].trim()
   })
 }
+
+async function readJsonFile(filePath) {
+  const fileContent = await fs.readFile(filePath, 'utf8');
+  return JSON.parse(fileContent);
+}
 // 写入 JSON 文件
 async function writeFileSync(writePath,content) {
   try {
@@ -29,5 +34,6 @@ async function writeFileSync(writePath,content) {
 module.exports = {
   cleanAltValues,
   extractTDK,
-  writeFileSync
+  writeFileSync,
+  readJsonFile
 }

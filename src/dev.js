@@ -1,10 +1,11 @@
 
 const { readExcel, extractDataFromRow } = require('./excelReader');
 const { writeFileSync } = require('./utils');
-
+const path = require('node:path');
 async function processExcelFile(filePath, sheetName, outputPath){
   try{
     const workSheet =await readExcel(filePath,sheetName)
+    console.log('workSheet',workSheet)
     const data =await extractDataFromRow(workSheet)
     await writeFileSync(outputPath, data)
     console.log('Data written to file successfully.');
@@ -13,8 +14,8 @@ async function processExcelFile(filePath, sheetName, outputPath){
   }
 }
 // 使用示例
-const filePath = './xlsx/1.xlsx';
 const sheetName = '工程机';
-const outputPath = `./json/${sheetName}.json`;
+const filePath = path.join(__dirname, '../xlsx/2.xlsx')
+const outputPath = path.join(__dirname, '../json/new-json', `${sheetName}.json`);
 
 processExcelFile(filePath, sheetName, outputPath);
