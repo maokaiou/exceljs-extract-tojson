@@ -4,7 +4,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "node ./src/index.js"
+    "dev": "node ./src/dev.js",
+    "merge": "node ./src/mergeJson.js",
+    "build": "npm run dev && npm run merge"
   },
   "keywords": [],
   "author": "",
