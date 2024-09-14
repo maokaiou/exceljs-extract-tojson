@@ -19,10 +19,8 @@ function mergeJsonData(existingItem, newItem) {
 async function main(devFilePath, existingFilePath) {
   try {
     const devData = await readJsonFile(devFilePath);
-    
     const existingData = await readJsonFile(existingFilePath);
     const mergedData = updateExistingData(existingData,devData,mergeJsonData);
-    
     await writeFileSync(existingFilePath, mergedData);
     console.log('Data merged and written to file successfully.');
   } catch (error) {
