@@ -42,10 +42,18 @@ function updateExistingData(existingData, newData,callback) {
   return existingData;
 }
 
+function isSimilar(str1, str2, threshold = 0.6) {
+  const distance = levenshtein.get(str1, str2);
+  const maxLength = Math.max(str1.length, str2.length);
+  const similarity = 1 - (distance / maxLength);
+  return similarity >= threshold;
+}
+
 module.exports = {
   cleanAltValues,
   extractTDK,
   writeFileSync,
   readJsonFile,
-  updateExistingData
+  updateExistingData,
+  isSimilar
 }
