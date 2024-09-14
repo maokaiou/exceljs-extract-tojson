@@ -1,4 +1,5 @@
 const fs = require('node:fs/promises');
+const fsSync = require('node:fs');
 
 /**
  * 清洗alt值
@@ -31,9 +32,20 @@ async function writeFileSync(writePath,content) {
   }
 }
 
+function updateExistingData(existingData, newData,callback) {
+  existingData.map((existingItem) => {
+    const newItem = newData.find(item => item.型号 === existingItem.型号);
+    if (newItem) {
+      callback(existingItem,newItem)
+    }
+  });
+  return existingData;
+}
+
 module.exports = {
   cleanAltValues,
   extractTDK,
   writeFileSync,
-  readJsonFile
+  readJsonFile,
+  updateExistingData
 }
