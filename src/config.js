@@ -1,5 +1,7 @@
 const path = require('node:path');
-const SHEET_NAME = '数码直喷印花机'
+
+const SHEET_NAME = process.argv[2]
+console.log('SHEET_NAME',SHEET_NAME)
 const HOME =  process.env.HOME || process.env.USERPROFILE
 module.exports = {
   HOME,

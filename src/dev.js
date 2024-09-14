@@ -28,7 +28,6 @@ async function processExcelFile(filePath, sheetName, outputPath){
   try{
     const workSheet =await readExcel(filePath,sheetName)
     const data =await sheetEachRow(workSheet, extractDataFromRow)
-    console.log(data)
     await writeFileSync(outputPath, data)
     console.log('Data written to file successfully.');
   }catch(error) {

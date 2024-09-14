@@ -41,7 +41,6 @@ async function addTag(filePath,sheetName,existingJsonPath){
   const newdata =await sheetEachRow(workSheet, extractTagFromRow)
   // 读取文件
   const existingData = await readJsonFile(existingJsonPath)
-  console.log(newdata)
   const updatedExistingData = updateExistingData(existingData,newdata,operationExcelRow)
   await writeFileSync(existingJsonPath,updatedExistingData)
 }

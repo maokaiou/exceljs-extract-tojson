@@ -21,7 +21,6 @@ async function main(devFilePath, existingFilePath) {
     const devData = await readJsonFile(devFilePath);
     
     const existingData = await readJsonFile(existingFilePath);
-    console.log(devFilePath)
     const mergedData = updateExistingData(existingData,devData,mergeJsonData);
     
     await writeFileSync(existingFilePath, mergedData);
