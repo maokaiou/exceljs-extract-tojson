@@ -5,6 +5,7 @@ const { cleanAltValues, extractTDK } = require('./utils');
 async function readExcel(filePath,sheetName){
   const workbook = new ExcelJS.Workbook();
   await workbook.xlsx.readFile(filePath);
+  console.log( workbook.worksheets.map((worksheet) => worksheet.name))
   // 获取指定的工作表
   const worksheet = workbook.getWorksheet(sheetName);
   if(!worksheet) {

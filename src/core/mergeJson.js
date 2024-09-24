@@ -1,5 +1,5 @@
 const { writeFileSync, readJsonFile, updateExistingData } = require('../utils/utils');
-const { XLSX_FILE_PATH: xlsxPath, DEV_JSON_PATH: devFilePath, EXISTING_JSON_PATH: existingJsonPath } =require('../global');
+const { XLSX_FILE_PATH: xlsxPath, DEV_JSON_PATH: devFilePath, DESKTOP_JSON_PATH: existingJsonPath } =require('../global');
 const { mergeJsonData } = require('../index')
 // 1、读取生成的 JSON 文件。
 // 2、读取本地存在的 JSON 文件。

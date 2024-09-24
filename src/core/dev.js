@@ -4,7 +4,6 @@ const { writeFileSync, cleanAltValues, extractTDK } = require('../utils/utils');
 const path = require('node:path');
 const { XLSX_FILE_PATH: xlsxPath, SHEET_NAME: sheetNameSet, DEV_JSON_PATH: devFilePath} =require('../global');
 const { extractDataFromRow } = require('../index')
-
 async function processExcelFile(filePath, sheetName, outputPath){
   try{
     const workSheet =await readExcel(filePath,sheetName)

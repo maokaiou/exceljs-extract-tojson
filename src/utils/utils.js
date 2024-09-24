@@ -1,6 +1,6 @@
 const fs = require('node:fs/promises');
 const fsSync = require('node:fs');
-
+const levenshtein = require('fast-levenshtein');
 /**
  * 清洗alt值
  * @param {Array<string>} alt - 原始alt值数组
@@ -15,7 +15,10 @@ function extractTDK(tdk) {
     return ele.text
   }).join(' ').split('\n')  
   return texts.map((ele)=>{
-    return ele.split('：').slice(1)[0].trim()
+    // 分割字符串并获取第二部分
+    const parts = ele.split('：');
+    const value = parts.length > 1 ? parts[1].trim() : '';
+    return value
   })
 }
 
@@ -42,7 +45,7 @@ function updateExistingData(existingData, newData,callback) {
   return existingData;
 }
 
-function isSimilar(str1, str2, threshold = 0.6) {
+function isSimilar(str1, str2, threshold = 0.39) {
   const distance = levenshtein.get(str1, str2);
   const maxLength = Math.max(str1.length, str2.length);
   const similarity = 1 - (distance / maxLength);

@@ -4,9 +4,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "node ./src/core/dev.js $sheetName",
-    "merge": "node ./src/core/mergeJson.js $sheetName",
-    "add-tag": "node ./src/core/tag.js $sheetName",
+    "dev": "node ./src/core/dev.js",
+    "merge": "node ./src/core/mergeJson.js",
+    "add-tag": "node ./src/core/tag.js",
     "build": "npm run dev && npm run merge"
   },
   "keywords": [],
