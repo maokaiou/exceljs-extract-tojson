@@ -7,7 +7,8 @@
     "dev": "node ./src/core/dev.js",
     "merge": "node ./src/core/mergeJson.js",
     "add-tag": "node ./src/core/tag.js",
-    "build": "npm run dev && npm run merge"
+    "build": "npm run dev && npm run merge",
+    "sort":"node ./src/sort/sort.js"
   },
   "keywords": [],
   "author": "",
